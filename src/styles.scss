@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+@use '@angular/material' as mat;
+
+body {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// .commonCard{
+//     border: 1px solid red;
+// }
+
+//Card Stylings
+:root {
+  @include mat.card-overrides((
+    subtitle-text-color: orange,
+    outlined-outline-color: green,
+  ));
+}
+
+:root {
+  @include mat.progress-bar-overrides((
+    active-indicator-color: green,
+  ));
+}

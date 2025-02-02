@@ -1,0 +1,12 @@
+
+::ng-deep mat-form-field .mat-mdc-text-field-wrapper{
+    padding: 0px;
+    background-color: white;
+}
+
+::ng-deep mat-form-field .mat-mdc-text-field-wrapper .mat-mdc-form-field-infix{
+    padding: 10px;
+    font-size: medium;
+    background-color: none;
+}
+

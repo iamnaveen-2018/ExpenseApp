@@ -1,0 +1,63 @@
+
+<div class="m-3">
+    <mat-card appearance="outlined">
+        <mat-card-content>
+            <h4>Add Salary Details</h4>
+            <div class="detailsFrom p-3">
+                <form [formGroup]="SalaryForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="customStyle w-100 p-0 example-full-width">
+                                <label name="SS">Salary Source</label>
+                                <input matInput name="SS" placeholder="Enter Salary Source" formControlName="salary_Source">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="customStyle w-100 p-0 example-full-width">
+                                <label name="SS">Salary Type</label>
+                                <input matInput name="SS"  placeholder="Enter Salary Type...(Daily, Weekly, Monthly)" formControlName="salary_Type" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="customStyle w-100 p-0 example-full-width">
+                                <label name="SS">Salary Description</label>
+                                <input matInput name="SS"  placeholder="Enter Salary Description" formControlName="description">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="example-full-width w-100">
+                                <label>Salary Amount</label>
+                                <input matInput placeholder="Enter your Amount" formControlName="amount" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="customStyle w-100 p-0 example-full-width">
+                                <label name="SS">Expense Amount</label>
+                                <input matInput name="SS"  placeholder="Enter Salary Description" formControlName="salary_Expense">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="example-full-width w-100">
+                                <label>Savings Amount</label>
+                                <input matInput placeholder="Enter your Amount" formControlName="salary_Savings" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6 text-end">
+                            <button type="button" (click)="back()" class="btn btn-danger mx-2">Cancel</button>
+                            <button type="submit" class="btn btn-success" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
