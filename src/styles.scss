@@ -13,12 +13,13 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-// .commonCard{
-//     border: 1px solid red;
-// }
-
 //Card Stylings
+:root {
+  @include mat.dialog-overrides((
+    container-min-width: 800px
+  ));
+}
+
 :root {
   @include mat.card-overrides((
     subtitle-text-color: orange,
@@ -30,4 +31,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include mat.progress-bar-overrides((
     active-indicator-color: green,
   ));
+}
+
+:root {
+  @include mat.form-field-overrides((
+      filled-container-color: none,
+      filled-focus-active-indicator-color: green,
+      filled-focus-label-text-color: green,
+      filled-hover-active-indicator-color: green
+  ));
+}
+
+.mat-mdc-text-field-wrapper, .mat-mdc-form-field-infix{
+  padding: 0 !important;
+}
+
+.mat-mdc-input-element::placeholder {
+  font-size: small !important;
+}
+
+.mat-mdc-text-field:not(.mdc-text-field--disabled):hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
 }

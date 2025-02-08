@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+:root {
+    @include mat.dialog-overrides((
+      container-min-width: 800px
+    ));
+  }
+
+  .but{
+    text-align: right;
+    display: flex;
+    float: right;
+  }
+

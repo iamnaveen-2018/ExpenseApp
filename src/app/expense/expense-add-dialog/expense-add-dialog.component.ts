@@ -12,10 +12,14 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-expense-add-dialog',
   imports: [
+    MatIconModule,
+    MatDividerModule,
     MatFormField,
     MatLabel,
     FormsModule,

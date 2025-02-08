@@ -1,27 +1,53 @@
 <mat-dialog-content>
-  <div class="row"> 
+  <div class="row">
     <h4>Create Expense</h4>
   </div>
   <div class="container">
     <form>
       <div class="row">
-        <div class="col-12">
-          <mat-form-field class="example-full-width w-100" >
-            <mat-label>Email</mat-label>
-            <input type="email" matInput  
-                   placeholder="Ex. pat@example.com">
+        <div class="col-6 p-2 ">
+          <mat-form-field class="example-full-width w-100">
+            <label>Name</label>
+            <input type="text" matInput placeholder="Expense Name">
           </mat-form-field>
         </div>
-        <div class="col-12">
-          <mat-form-field>
-            <mat-label>Expense Name</mat-label>
-            <input type="text" mat-input placeholder="Expense Name">
+        <div class="col-6 p-2 ">
+          <mat-form-field class="example-full-width w-100">
+            <label>Type</label>
+            <input type="text" matInput placeholder="Expense Type">
           </mat-form-field>
         </div>
       </div>
-      
+      <div class="row">
+        <div class="col-6 p-2 ">
+          <mat-form-field class="example-full-width w-100">
+            <label>Description</label>
+            <input type="text" matInput placeholder="Expense Description">
+          </mat-form-field>
+        </div>
+        <div class="col-6 p-2 ">
+          <mat-form-field class="example-full-width w-100">
+            <label>Source</label>
+            <input type="text" matInput placeholder="Expense source">
+          </mat-form-field>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-6 p-2 ">
+            <mat-form-field class="example-full-width w-100">
+              <label>Amount</label>
+              <input type="number" matInput placeholder="Expense Amount">
+            </mat-form-field>
+          </div>
+      </div>
+      <div class="row">
+        <section>
+          <div class="example-button-row but">
+            <button type="button" class="btn btn-danger mx-2">Cancel</button>
+            <button type="button" class="btn btn-success mx-2">Create</button>
+          </div>
+        </section>
+      </div>
     </form>
   </div>
-  
-  
 </mat-dialog-content>
