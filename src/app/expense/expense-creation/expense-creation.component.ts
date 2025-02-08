@@ -1,19 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ExpenseDetailsComponent } from "../expense-details/expense-details.component";
-import { SavingsDetailsComponent } from "../../savings/savings-details/savings-details.component";
+
 import {
-  MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { ExpenseAddDialogComponent } from '../expense-add-dialog/expense-add-dialog.component';
 
 
 export interface PeriodicElement {
@@ -39,13 +33,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-expense-creation',
   imports: [
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
     MatTabsModule,
-    ExpenseDetailsComponent,
-    SavingsDetailsComponent,
     MatCardModule,
     MatTableModule,
     MatIconModule
@@ -53,11 +41,29 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './expense-creation.component.html',
   styleUrl: './expense-creation.component.scss'
 })
-export class ExpenseCreationComponent {
+export class ExpenseCreationComponent implements OnInit {
   displayedColumns: string[] = ['name', 'type','desc', 'source', 'amount'];
   dataSource = [];
 
+  constructor(
+    private dialog: MatDialog
+  ){
+
+  }
+
+  ngOnInit(): void {
+      
+  }
+
   openpopUp(){
-    console.log("dialoug box");
+    let dialogRef = this.dialog.open(ExpenseAddDialogComponent, {
+      data: {}
+    })
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result == 'submit'){
+        // this.ngOnInit();
+        alert("Submited")
+      }
+    })
   }
 }

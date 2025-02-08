@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { MatFormField } from '@angular/material/form-field';
-import { MatLabel } from '@angular/material/form-field';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -12,6 +11,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-expense-add-dialog',
@@ -20,18 +20,24 @@ import {
     MatLabel,
     FormsModule,
     MatButtonModule,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogTitle,
+    MatInputModule,
+    MatLabel
   ],
   templateUrl: './expense-add-dialog.component.html',
   styleUrl: './expense-add-dialog.component.scss'
 })
 export class ExpenseAddDialogComponent {
   animal: string | undefined;
-  dialogRef: any;
+
+  constructor(
+    private dialogRef: MatDialogRef<ExpenseAddDialogComponent>,
+    private dialog: MatDialog
+  ){}
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialog.closeAll(); 
+    this.dialogRef.close('submit')
   }
 }
