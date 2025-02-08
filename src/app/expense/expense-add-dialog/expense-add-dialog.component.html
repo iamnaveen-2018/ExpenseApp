@@ -47,15 +47,8 @@
           </mat-form-field>
         </div>
         <div class="col-6 p-2 ">
-          <mat-form-field class="example-full-width w-100">
-            <label>Source</label>
-            <input type="text" matInput placeholder="Expense source" formControlName="source">
-            @if(expenseForm.controls['source'].hasError('required')){
-              <mat-error >
-                This field is required
-              </mat-error>
-            }
-          </mat-form-field>
+          <label>Salary Source</label>
+          <p-select optionLabel="name" [options]="names"  optionValue="value"  placeholder="Select a City" class="w-full md:w-56" styleClass="custom-panel-style" />
         </div>
       </div>
         <div class="row">

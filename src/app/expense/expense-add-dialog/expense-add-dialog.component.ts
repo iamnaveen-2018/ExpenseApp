@@ -16,10 +16,12 @@ import { MatError } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { SelectModule } from 'primeng/select';
 
 @Component({
   selector: 'app-expense-add-dialog',
   imports: [
+    SelectModule,
     ReactiveFormsModule,
     MatError,
     MatIconModule,
@@ -39,6 +41,20 @@ import {MatDividerModule} from '@angular/material/divider';
 })
 export class ExpenseAddDialogComponent implements OnInit {
   expenseForm: FormGroup;
+  names = [
+    {
+      name: 'Vishnu',
+      value: 'Vishnu'
+    },
+    {
+      name:'Naveen',
+      value: 'Naveen'
+    },
+    {
+      name: 'Chendur',
+      value: 'Chendur'
+    }
+  ]
   constructor(
     private dialogRef: MatDialogRef<ExpenseAddDialogComponent>,
     private dialog: MatDialog,

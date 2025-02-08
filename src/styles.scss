@@ -69,3 +69,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     active-focus-indicator-color: green
   ));
 }
+
+p-select{
+  color: black !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid black !important;
+  background-color: #FAF9FD !important;
+  width: 100%;
+  border-radius: 0px !important;
+}
+
+.p-select-label{
+  padding-left: 0 !important;
+  color: black !important;
+}
+
+
+
+.custom-panel-style p-select-panel {
+  background-color: black;
+  border-radius: 10px;
+
+}

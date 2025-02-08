@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import { ExpenseService } from '../service/expense.service';
+import { SelectModule } from 'primeng/select';
 import {
   MatDialog,
 } from '@angular/material/dialog';
@@ -33,6 +34,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-expense-creation',
   imports: [
+    SelectModule,
     MatTabsModule,
     MatCardModule,
     MatTableModule,
@@ -46,13 +48,14 @@ export class ExpenseCreationComponent implements OnInit {
   dataSource = [];
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _expenseService: ExpenseService
   ){
 
   }
 
   ngOnInit(): void {
-      
+      this.loadData()
   }
 
   openpopUp(){
@@ -64,6 +67,12 @@ export class ExpenseCreationComponent implements OnInit {
         // this.ngOnInit();
         alert("Submited")
       }
+    })
+  }
+
+  loadData(){
+    this._expenseService.GetAllExpense().subscribe((element) => {
+      this.dataSource = element.data;
     })
   }
 }
