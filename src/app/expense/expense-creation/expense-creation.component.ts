@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-//Material
+import {MatTabsModule} from '@angular/material/tabs';
+import { ExpenseDetailsComponent } from "../expense-details/expense-details.component";
+import { SavingsDetailsComponent } from "../../savings/savings-details/savings-details.component";
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,18 +37,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-expense-details',
+  selector: 'app-expense-creation',
   imports: [
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+    MatTabsModule,
+    ExpenseDetailsComponent,
+    SavingsDetailsComponent,
     MatCardModule,
     MatTableModule,
-    MatIconModule,
-    RouterModule
-  ],
-  templateUrl: './expense-details.component.html',
-  styleUrl: './expense-details.component.scss'
+    MatIconModule
+],
+  templateUrl: './expense-creation.component.html',
+  styleUrl: './expense-creation.component.scss'
 })
-
-export class ExpenseDetailsComponent {
-  displayedColumns: string[] = ['name','type','desc','source','amount','balance'];
+export class ExpenseCreationComponent {
+  displayedColumns: string[] = ['name', 'type','desc', 'source', 'amount'];
   dataSource = [];
+
+  openpopUp(){
+    console.log("dialoug box");
+  }
 }
