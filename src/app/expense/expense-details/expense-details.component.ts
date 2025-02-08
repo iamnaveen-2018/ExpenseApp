@@ -39,6 +39,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class ExpenseDetailsComponent {
-  displayedColumns: string[] = ['source', 'type', 'about', 'amount'];
+  displayedColumns: string[] = ['name', 'source', 'type', 'about', 'amount'];
   dataSource = [];
 }
