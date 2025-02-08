@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -33,13 +33,20 @@ import {MatDividerModule} from '@angular/material/divider';
   templateUrl: './expense-add-dialog.component.html',
   styleUrl: './expense-add-dialog.component.scss'
 })
-export class ExpenseAddDialogComponent {
+export class ExpenseAddDialogComponent implements OnInit {
   animal: string | undefined;
 
   constructor(
     private dialogRef: MatDialogRef<ExpenseAddDialogComponent>,
     private dialog: MatDialog
   ){}
+
+  ngOnInit(): void {
+      this.dialogRef.updatePosition({
+        top: '5%'
+      })
+  }
+
   onNoClick(): void {
     this.dialog.closeAll(); 
     this.dialogRef.close('submit')
