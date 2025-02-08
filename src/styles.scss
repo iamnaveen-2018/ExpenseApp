@@ -58,3 +58,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-form-field-focus-overlay {
   background-color: transparent !important;
 }
+.mat-mdc-form-field-error-wrapper{
+  padding: 0 !important;
+}
+
+:root {
+  @include mat.tabs-overrides((
+    active-indicator-color: green,
+    active-hover-indicator-color: green,
+    active-focus-indicator-color: green
+  ));
+}

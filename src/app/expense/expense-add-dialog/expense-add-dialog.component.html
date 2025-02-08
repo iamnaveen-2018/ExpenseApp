@@ -3,18 +3,34 @@
     <h4>Create Expense</h4>
   </div>
   <div class="container">
-    <form>
+    <form [formGroup]="expenseForm">
       <div class="row">
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Name</label>
-            <input type="text" matInput placeholder="Expense Name">
+            <input type="text" matInput placeholder="Expense Name" formControlName="name">
+            @if(expenseForm.controls['name'].hasError('required')){
+              <mat-error >
+                This field is required
+              </mat-error>
+            }
+            @else if (expenseForm.controls['name'].hasError('maxlength')) {
+              <mat-error>
+                Exceeded more than 100 letters.
+              </mat-error>
+            }
+            
           </mat-form-field>
         </div>
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Type</label>
-            <input type="text" matInput placeholder="Expense Type">
+            <input type="text" matInput placeholder="Expense Type" formControlName="type">
+            @if(expenseForm.controls['type'].hasError('required')){
+              <mat-error >
+                This field is required
+              </mat-error>
+            }
           </mat-form-field>
         </div>
       </div>
@@ -22,13 +38,23 @@
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Description</label>
-            <input type="text" matInput placeholder="Expense Description">
+            <input type="text" matInput placeholder="Expense Description" formControlName="desc">
+            @if(expenseForm.controls['desc'].hasError('required')){
+              <mat-error >
+                This field is required
+              </mat-error>
+            }
           </mat-form-field>
         </div>
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Source</label>
-            <input type="text" matInput placeholder="Expense source">
+            <input type="text" matInput placeholder="Expense source" formControlName="source">
+            @if(expenseForm.controls['source'].hasError('required')){
+              <mat-error >
+                This field is required
+              </mat-error>
+            }
           </mat-form-field>
         </div>
       </div>
@@ -36,14 +62,24 @@
           <div class="col-6 p-2 ">
             <mat-form-field class="example-full-width w-100">
               <label>Amount</label>
-              <input type="number" matInput placeholder="Expense Amount">
+              <input type="number" matInput placeholder="Expense Amount" formControlName="amt">
+              @if(expenseForm.controls['amt'].hasError('required')){
+              <mat-error >
+                This field is required
+              </mat-error>
+            }
+            @else if (expenseForm.controls['amt'].hasError('min')) {
+              <mat-error>
+                Value must be greater than 0.
+              </mat-error>
+            }
             </mat-form-field>
           </div>
       </div>
       <div class="row">
         <section>
           <div class="example-button-row but">
-            <button type="button" class="btn btn-danger mx-2">Cancel</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="onNoClick()">Cancel</button>
             <button type="button" class="btn btn-success mx-2">Create</button>
           </div>
         </section>
