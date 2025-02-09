@@ -28,14 +28,10 @@ import { ExpenseService } from '../service/expense.service';
     MatIconModule,
     MatDividerModule,
     MatFormField,
-    MatLabel,
     FormsModule,
     MatButtonModule,
-    MatDialogActions,
     MatDialogContent,
-    MatDialogTitle,
     MatInputModule,
-    MatLabel
   ],
   templateUrl: './expense-add-dialog.component.html',
   styleUrl: './expense-add-dialog.component.scss'
