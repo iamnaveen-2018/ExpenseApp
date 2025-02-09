@@ -12,4 +12,12 @@ export class ExpenseService {
   GetAllExpense(){
     return this.http.get<any>('https://localhost:7227/api/Expense').pipe(tap((res)=>{}))
   }
+
+  GetAllSalary(){
+    return this.http.get<any>('https://localhost:7227/api/Salary').pipe(tap((res) => {}))
+  }
+
+  AddNewExpense(value: any){
+    return this.http.post<any>('https://localhost:7227/api/Expense', value).pipe(tap((res) => {}))
+  }
 }

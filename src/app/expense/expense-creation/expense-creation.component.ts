@@ -64,8 +64,7 @@ export class ExpenseCreationComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe((result) => {
       if(result == 'submit'){
-        // this.ngOnInit();
-        alert("Submited")
+        this.ngOnInit();
       }
     })
   }

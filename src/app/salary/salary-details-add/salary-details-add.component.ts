@@ -55,12 +55,12 @@ export class SalaryDetailsAddComponent {
     private _salaryService: SalaryService
   ){
     this.SalaryForm = this._formBuilder.group({
-      salary_Source: [null, Validators.compose([Validators.required, Validators.maxLength(255)])],
-      salary_Type: [null, Validators.compose([Validators.required, Validators.maxLength(255)])],
+      salarySource: [null, Validators.compose([Validators.required, Validators.maxLength(255)])],
+      salaryType: [null, Validators.compose([Validators.required, Validators.maxLength(255)])],
       description: [null, Validators.compose([Validators.required, Validators.maxLength(512)])],
       amount: [0, Validators.compose([Validators.required])],
-      salary_Expense: [null, Validators.compose([Validators.required])],
-      salary_Savings: [null, Validators.compose([Validators.required])]
+      salaryExpense: [null, Validators.compose([Validators.required])],
+      salarySavings: [null, Validators.compose([Validators.required])]
     })
   }
 

@@ -3,18 +3,18 @@
     <h4>Create Expense</h4>
   </div>
   <div class="container">
-    <form [formGroup]="expenseForm">
+    <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Name</label>
-            <input type="text" matInput placeholder="Expense Name" formControlName="name">
-            @if(expenseForm.controls['name'].hasError('required')){
+            <input type="text" matInput placeholder="Expense Name" formControlName="expenseName">
+            @if(expenseForm.controls['expenseName'].hasError('required')){
               <mat-error >
                 This field is required
               </mat-error>
             }
-            @else if (expenseForm.controls['name'].hasError('maxlength')) {
+            @else if (expenseForm.controls['expenseName'].hasError('maxlength')) {
               <mat-error>
                 Exceeded more than 100 letters.
               </mat-error>
@@ -25,8 +25,8 @@
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Type</label>
-            <input type="text" matInput placeholder="Expense Type" formControlName="type">
-            @if(expenseForm.controls['type'].hasError('required')){
+            <input type="text" matInput placeholder="Expense Type" formControlName="expenseType">
+            @if(expenseForm.controls['expenseType'].hasError('required')){
               <mat-error >
                 This field is required
               </mat-error>
@@ -38,8 +38,8 @@
         <div class="col-6 p-2 ">
           <mat-form-field class="example-full-width w-100">
             <label>Description</label>
-            <input type="text" matInput placeholder="Expense Description" formControlName="desc">
-            @if(expenseForm.controls['desc'].hasError('required')){
+            <input type="text" matInput placeholder="Expense Description" formControlName="description">
+            @if(expenseForm.controls['description'].hasError('required')){
               <mat-error >
                 This field is required
               </mat-error>
@@ -48,20 +48,20 @@
         </div>
         <div class="col-6 p-2 ">
           <label>Salary Source</label>
-          <p-select optionLabel="name" [options]="names"  optionValue="value"  placeholder="Select a City" class="w-full md:w-56" styleClass="custom-panel-style" />
+          <p-select optionLabel="name" [options]="salaryDetails"  optionValue="value"  placeholder="Select a Salary" class="w-full md:w-56" styleClass="custom-panel-style" formControlName="salaryId" />
         </div>
       </div>
         <div class="row">
           <div class="col-6 p-2 ">
             <mat-form-field class="example-full-width w-100">
               <label>Amount</label>
-              <input type="number" matInput placeholder="Expense Amount" formControlName="amt">
-              @if(expenseForm.controls['amt'].hasError('required')){
+              <input type="number" matInput placeholder="Expense Amount" formControlName="expenseAmount">
+              @if(expenseForm.controls['expenseAmount'].hasError('required')){
               <mat-error >
                 This field is required
               </mat-error>
             }
-            @else if (expenseForm.controls['amt'].hasError('min')) {
+            @else if (expenseForm.controls['expenseAmount'].hasError('min')) {
               <mat-error>
                 Value must be greater than 0.
               </mat-error>
@@ -73,7 +73,7 @@
         <section>
           <div class="example-button-row but">
             <button type="button" class="btn btn-danger mx-2" (click)="onNoClick()">Cancel</button>
-            <button type="button" class="btn btn-success mx-2">Create</button>
+            <button type="submit" class="btn btn-success mx-2">Create</button>
           </div>
         </section>
       </div>

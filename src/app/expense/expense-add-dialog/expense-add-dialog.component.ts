@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import { SelectModule } from 'primeng/select';
+import { ExpenseService } from '../service/expense.service';
 
 @Component({
   selector: 'app-expense-add-dialog',
@@ -41,6 +42,7 @@ import { SelectModule } from 'primeng/select';
 })
 export class ExpenseAddDialogComponent implements OnInit {
   expenseForm: FormGroup;
+  salaryDetails: any;
   names = [
     {
       name: 'Vishnu',
@@ -58,24 +60,48 @@ export class ExpenseAddDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<ExpenseAddDialogComponent>,
     private dialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _expenseService: ExpenseService
   ){
       this.expenseForm = this.fb.group({
-        name: [null,Validators.compose([Validators.required, Validators.maxLength(100)])],
-        type: [null,Validators.required],
-        desc: [null,Validators.required],
-        source: [null,Validators.required],
-        amt: [null,Validators.compose([Validators.required,Validators.min(1)])]
+        expenseName: [null,Validators.compose([Validators.required, Validators.maxLength(100)])],
+        expenseType: [null,Validators.required],
+        description: [null,Validators.required],
+        salaryId: [null,Validators.required],
+        expenseAmount: [null,Validators.compose([Validators.required,Validators.min(1)])]
       })
   }
 
   ngOnInit(): void {
-      this.dialogRef.updatePosition({
-        top: '5%'
-      })
+    this.loadSalary();
+    this.dialogRef.updatePosition({
+      top: '5%'
+    })
   }
 
   onNoClick(): void {
     this.dialog.closeAll(); 
+  }
+
+  loadSalary(){
+    this._expenseService.GetAllSalary().subscribe((ele) => {
+      this.salaryDetails = ele.data
+      console.log(this.salaryDetails)
+      this.salaryDetails = this.salaryDetails.map((res: any) => {
+        return{
+          name: res.salarySource,
+          value: res.salaryId
+        }
+      })
+      
+    })
+  }
+
+  onSubmit(){
+    console.log("Submited");  
+    this._expenseService.AddNewExpense(this.expenseForm.value).subscribe((res: any) => {
+      console.log(res)
+    });
+    this.dialogRef.close('submit');
   }
 }
