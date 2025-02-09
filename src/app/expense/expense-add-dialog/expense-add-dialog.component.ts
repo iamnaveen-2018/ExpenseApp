@@ -27,14 +27,10 @@ import { SelectModule } from 'primeng/select';
     MatIconModule,
     MatDividerModule,
     MatFormField,
-    MatLabel,
     FormsModule,
     MatButtonModule,
-    MatDialogActions,
     MatDialogContent,
-    MatDialogTitle,
     MatInputModule,
-    MatLabel
   ],
   templateUrl: './expense-add-dialog.component.html',
   styleUrl: './expense-add-dialog.component.scss'

@@ -39,7 +39,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatCardModule,
     MatTableModule,
     MatIconModule
-],
+  ],
   templateUrl: './expense-creation.component.html',
   styleUrl: './expense-creation.component.scss'
 })
