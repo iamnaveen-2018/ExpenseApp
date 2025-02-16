@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './home/sign-up/sign-up.component';
 
 export const routes: Routes = [
     {
@@ -22,5 +23,9 @@ export const routes: Routes = [
     {
         path: 'savings',
         loadChildren: () =>  import('./savings/savings.module').then(m => m.SavingsModule)
+    },
+    {
+        path: 'sign-up',
+        component: SignUpComponent
     }
 ];
