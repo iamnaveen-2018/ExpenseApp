@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { SelectModule } from 'primeng/select';
 
 
 //Service
@@ -25,7 +26,8 @@ import { SalaryService } from '../salary.service';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    SelectModule
   ],
   templateUrl: './salary-details-add.component.html',
   styleUrl: './salary-details-add.component.scss'

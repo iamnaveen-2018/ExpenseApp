@@ -25,7 +25,7 @@
     "@clr/ui": "^17.6.0",
     "@primeng/themes": "^19.0.6",
     "bootstrap": "^5.3.3",
-    "material-icons": "^1.13.13",
+    "material-icons": "^1.13.14",
     "primeng": "^19.0.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

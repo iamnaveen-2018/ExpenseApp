@@ -13,10 +13,8 @@
                             </mat-form-field>
                         </div>
                         <div class="col-6">
-                            <mat-form-field class="customStyle w-100 p-0 example-full-width">
-                                <label name="SS">Salary Type</label>
-                                <input matInput name="SS"  placeholder="Enter Salary Type...(Daily, Weekly, Monthly)" formControlName="salaryType" >
-                            </mat-form-field>
+                            <label>Salary Source</label>
+                            <p-select formControlName="salaryType" optionLabel="name" [options]="selectedOption" optionValue="value"  placeholder="Select Source" class="w-full md:w-56" styleClass="custom-panel-style"  />
                         </div>
                     </div>
                     <div class="row">
